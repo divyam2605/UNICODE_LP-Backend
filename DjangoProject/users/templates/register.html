@@ -1,0 +1,58 @@
+<!--{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+    <div class="content_section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Make Signing Up here your 1st Task</legend>
+                {{ form|crispy }}
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="Submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
+    </div>
+
+
+{% comment %}
+    {% csrf token %}
+{% endcomment %}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode</title>
+</head>
+{% load static %}
+{% block content %}
+<body>
+    <h1>Unicode Form</h1>
+    <hr>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
+    </form>
+    <hr>
+    {% for i in order %}
+        <div>
+            <p>{{i.Name}}</p>
+            <a href="{% url 'update' i.id %}">Update</a>
+            <a href="{% url 'delete' i.id %}">Delete</a>
+        </div>
+    {% endfor %}
+</body>
+{% endblock %}
+</html>
+
